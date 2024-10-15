@@ -34,7 +34,7 @@ const UserManager = () => {
     // Fetch users
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/users');
+            const response = await axios.get('https://team-collobration-hub.onrender.com/api/users');
             setUsers(response.data);
         } catch (error) {
             console.error('Error fetching users:', error);
@@ -49,7 +49,7 @@ const UserManager = () => {
         if (newUserName.trim() && newUserEmail.trim() && newUserPassword.trim()) {
             const newUser = { name: newUserName, email: newUserEmail, password: newUserPassword };
             try {
-                const response = await axios.post('http://localhost:5000/api/users/register', newUser);
+                const response = await axios.post('https://team-collobration-hub.onrender.com/api/users/register', newUser);
                 setUsers((prevUsers) => [...prevUsers, response.data]);
                 setNewUserName('');
                 setNewUserEmail('');

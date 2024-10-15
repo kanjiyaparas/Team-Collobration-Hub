@@ -17,7 +17,7 @@ import {
 import io from 'socket.io-client';
 import axios from 'axios';
 
-const socket = io('http://localhost:5000');
+const socket = io('https://team-collobration-hub.onrender.com');
 
 const TaskChatRoom = () => {
     const { taskId } = useParams(); 
@@ -32,12 +32,12 @@ const TaskChatRoom = () => {
     // Fetch messages and task users
     useEffect(() => {
         const fetchMessages = async () => {
-            const response = await axios.get(`http://localhost:5000/api/message/${taskId}`);
+            const response = await axios.get(`https://team-collobration-hub.onrender.com/api/message/${taskId}`);
             setMessages(response.data);
         };
 
         const fetchTaskUsers = async () => {
-            const response = await axios.get(`http://localhost:5000/api/tasks/${taskId}/users`);
+            const response = await axios.get(`https://team-collobration-hub.onrender.com/api/tasks/${taskId}/users`);
             setUsers(response.data);
         };
 
@@ -59,7 +59,7 @@ const TaskChatRoom = () => {
             setMessages((prevMessages) => [...prevMessages, newMessage]);
 
             try {
-                await axios.post('http://localhost:5000/api/message', newMessage);
+                await axios.post('https://team-collobration-hub.onrender.com/api/message', newMessage);
                 // window.location.reload(); // Avoid using reload, will be managed via socket
             } catch (error) {
                 console.error('Error saving message to server', error);
