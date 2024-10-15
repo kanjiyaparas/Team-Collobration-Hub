@@ -60,7 +60,7 @@ const TaskChatRoom = () => {
 
             try {
                 await axios.post('https://team-collobration-hub.onrender.com/api/message', newMessage);
-                // window.location.reload(); // Avoid using reload, will be managed via socket
+                window.location.reload();
             } catch (error) {
                 console.error('Error saving message to server', error);
             } finally {
