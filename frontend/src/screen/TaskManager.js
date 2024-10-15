@@ -135,7 +135,7 @@ const TaskManager = () => {
                             <ListItemText
                                 primary={task.title}
                                 secondary={`Assigned to: ${task.userIds.map((userId) =>
-                                    users.find((user) => user._id === userId)?.name).join(', ')}`}
+                                    users.find((user) => user._id === userId._id)?.name).join(', ')}`}
                             />
                         </ListItem>
                     ))}
